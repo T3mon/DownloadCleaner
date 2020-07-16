@@ -29,7 +29,6 @@ class Handler(FileSystemEventHandler):
 
 
 folder_from = "C:/Users/Артем/Downloads"
-
 folder_to_img = "C:/Users/Артем/Desktop/img"
 folder_to_audio = "C:/Users/Артем/Desktop/audio"
 folder_to_text = "C:/Users/Артем/Desktop/text"
