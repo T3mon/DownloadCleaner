@@ -50,7 +50,7 @@ folder_to_rar = "C:/Users/" + username + "/Desktop/rar"
 
 handle = Handler()
 observer = Observer()
-# handle.create_dir()
+handle.create_dir()
 observer.schedule(handle, folder_from, recursive=True)
 observer.start()
 
