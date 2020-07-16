@@ -5,6 +5,14 @@ from watchdog.events import FileSystemEventHandler
 
 
 class Handler(FileSystemEventHandler):
+    @staticmethod
+    def create_dir():
+        try:
+            os.mkdir(folder_to_img)
+            os.mkdir(folder_to_audio)
+            os.mkdir(folder_to_text)
+        except OSError:
+            return
 
     @staticmethod
     def to_file(filename, dest):
@@ -37,8 +45,10 @@ folder_to_text = "C:/Users/" + username + "/Desktop/text"
 
 handle = Handler()
 observer = Observer()
+handle.create_dir()
 observer.schedule(handle, folder_from, recursive=True)
 observer.start()
+
 try:
     while True:
         time.sleep(10)
