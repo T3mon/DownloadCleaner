@@ -28,10 +28,12 @@ class Handler(FileSystemEventHandler):
                 self.to_file(filename, folder_to_text)
 
 
-folder_from = "C:/Users/Артем/Downloads"
-folder_to_img = "C:/Users/Артем/Desktop/img"
-folder_to_audio = "C:/Users/Артем/Desktop/audio"
-folder_to_text = "C:/Users/Артем/Desktop/text"
+username = "Артем"
+
+folder_from = "C:/Users/" + username + "/Downloads"
+folder_to_img = "C:/Users/" + username + "/Desktop/img"
+folder_to_audio = "C:/Users/" + username + "/Desktop/audio"
+folder_to_text = "C:/Users/" + username + "/Desktop/text"
 
 handle = Handler()
 observer = Observer()
