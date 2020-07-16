@@ -11,6 +11,7 @@ class Handler(FileSystemEventHandler):
             os.mkdir(folder_to_img)
             os.mkdir(folder_to_audio)
             os.mkdir(folder_to_text)
+            os.mkdir(folder_to_rar)
         except OSError:
             return
 
@@ -34,6 +35,9 @@ class Handler(FileSystemEventHandler):
                                          or extension[1].lower() == "docx" or extension[1].lower() == "txt"
                                          or extension[1].lower() == "rtf" or extension[1].lower() == "wpd"):
                 self.to_file(filename, folder_to_text)
+            elif len(extension) > 1 and (extension[1].lower() == "rar" or extension[1].lower() == "zip"
+                                         or extension[1].lower() == "zipx" or extension[1].lower() == "7z"):
+                self.to_file(filename, folder_to_rar)
 
 
 username = "Артем"
@@ -42,10 +46,11 @@ folder_from = "C:/Users/" + username + "/Downloads"
 folder_to_img = "C:/Users/" + username + "/Desktop/img"
 folder_to_audio = "C:/Users/" + username + "/Desktop/audio"
 folder_to_text = "C:/Users/" + username + "/Desktop/text"
+folder_to_rar = "C:/Users/" + username + "/Desktop/rar"
 
 handle = Handler()
 observer = Observer()
-handle.create_dir()
+# handle.create_dir()
 observer.schedule(handle, folder_from, recursive=True)
 observer.start()
 
